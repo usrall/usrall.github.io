@@ -71,6 +71,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-114154-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" class="article-date">
+  <time class="dt-published" datetime="2023-01-15T11:54:37.871Z" itemprop="datePublished">2023-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>happyctf:<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png"><br>下载附件查壳后发现无壳：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_380a51679aa73fad23df6b6f4965fa95.png"></p>
+<p>拖进IDA32位：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_06b48ad312cd5d31ae06a7c98109853c.png"><br>打开主函数<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_73d382a1b7d1c5f5ff0d1a5a6787211c.png"></p>
+<p>发现一个可疑的函数：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_48c990c7a49d7e072ed2668179848c5e.png"></p>
+<p>进入：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_452f902126c6f1089e11101e896319d7.png"><br>写出脚本：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_642ac3769c726c0a0d3d62a66011298d.png"><br>得出flag。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" data-id="clcxbm1p70000xomu2bd69iuq" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-114154" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/15/114154/" class="article-date">
+  <time class="dt-published" datetime="2023-01-15T10:48:10.297Z" itemprop="datePublished">2023-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>逆向题：<br>1.easyre<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_2a74db7726b570a9e566e082bbbe7935.png"><br>直接下载附件，使用die查壳后发现无壳，是64位程序<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a3675dd6d337179b9b7e7c50593e2809.png"><br>拖进IDA64位：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b0fb0707abb906882fbadc11b685ec2e.png"><br>通过F5反编译后，答案显而易见。<br>2.reverse1<br>首先下载好附件，使用查壳软件发现无壳，拖进IDA里面<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9531c4974a7011ce7b0a7ad05b0f34bb.png"></p>
+<p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1b0682fca6a963d8265e3f3ba89adeda.png"></p>
+<p>使用shift + F12查找字符串：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_d2d24ef37747b0f60a2f9511e3ced383.png"><br>找到可疑字符”this is right flag!\n“<br>追踪进去：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_efb9a7e04423c7afb132aa2104dbbabd.png"></p>
+<p>发现后面有一个函数，双击进去：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_391860f57286f4c1fc96420edc1586a2.png"><br>根据函数，发现判断条件是str1和str2相等<br>追踪str2发现其为”hello_world“<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_ef9d39f8c0d6c5bbf69acc2b450acbc6.png"></p>
+<p>然而到这里并没有结束，<br>注意前面的函数：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1e161b380b819f4ce2788b53d9984706.png"><br>由此得知应将”o“改为”0“；<br>故得出flag应为”hell0_w0rld“</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/15/114154/" data-id="clcx98s9j0000icmuar2s8h3v" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-1231" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/01/15/1231/" class="article-date">
@@ -210,6 +275,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/15/114154/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2023/01/15/1231/">(no title)</a>
