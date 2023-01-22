@@ -71,6 +71,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-穿山甲" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" class="article-date">
+  <time class="dt-published" datetime="2023-01-22T13:25:14.024Z" itemprop="datePublished">2023-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>蒋璐源的秘密：<br>打开靶机：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1b3522dd8dfe448a17a3bc4c4ac038b7.png"><br>（大晚上看的多少有点瘆人了）<br>查看源代码<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9cbfa96d4e0f2e912e9f0c2fedb0b586.png"><br>发现一个可疑的地址：Archive_room.php，跟进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_aa7fabf2b440f04b161848039f3085ea.png"><br>点进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_eebfad1cf385c2c2b0e3ebc86fd8f509.png"><br>….变成小丑了<br>直接用bp拦截<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_66ec6e4f5ba684a1f4b33dc96defc42a.png"><br>黄色的地方加到网址后面，<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5bfe6586a556aff2f79a91f153480855.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_f99935bec98592384997f8f01d6e4f49.png"><br>…..<br>后面的我就不咋会了…我去搜的：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_871f9a7a1da6d53ac8e1acc9c4584967.png"><br>才知道需要构造东西：<br>于是flag就出来了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" data-id="cld7ey52h000160mu8427c2zk" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-123222" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/22/123222/" class="article-date">
+  <time class="dt-published" datetime="2023-01-22T13:14:26.401Z" itemprop="datePublished">2023-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1347f4a36d0015c55c0471ece68ee01f.png"><br>打开靶机，发现是这样子的：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5e8a69cf3576d59673bec79ebc3e0b60.png"><br>猜测可能是sql注入或者是命令执行漏洞：<br>先ping一下主机地址：127.0.0.1：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_93d73a040df6d70ee0fda9739cd26027.png"><br>有回显<br>大概是命令执行漏洞<br>试一下127.0.0 &amp;&amp; ls：<br>无回显<br>再试127.0.0.1 &amp; ls：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_960a3fd662b0b1423aed367e0867b691.png"><br>有回显<br>访问index.php好像又回到了初始页面…..<br>试一下linux的命令（当然是上网上搜索的哈哈）<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_880827603513d7902cc467e7c0bd692f.png"><br>直接cat flag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/22/123222/" data-id="cld7ey52a000060mu8z3y8v4d" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-114154-副本-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" class="article-date">
+  <time class="dt-published" datetime="2023-01-22T03:50:46.416Z" itemprop="datePublished">2023-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>simplerev:<br>使用查壳工具发现并没有壳<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_4f3fccee65717f179fe2c9f0b0f9ef49.png"><br>使用ida64位打开：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b7f6dd7dfa5140f2500e0aa35d2877e2.png"><br>大概看了一下，试着写出前半部分的c语言代码：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3fa73b0759ee89a7503b23dfe6dd1438.png"><br>它的意思是将小写字母转化为大写字母，<br>后面代码的意思是将flag通过算法后的字符串跟str2比较，要想得出flag，可以爆破或者是逆向解出，但是我都不会……最后我还是上网搜了哈哈哈<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_769be108ad76da9fc01b81751dc8f7cc.png"><br>这个就是脚本</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" data-id="cld6uh0rt0000tkmu41n9fk37" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-114154-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" class="article-date">
@@ -277,23 +364,23 @@
       <ul>
         
           <li>
+            <a href="/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/22/123222/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/">(no title)</a>
           </li>
         
           <li>
             <a href="/2023/01/15/114154/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/15/1231/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/14/1231-%E5%89%AF%E6%9C%AC/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/11/hello-world/">Hello World</a>
           </li>
         
       </ul>

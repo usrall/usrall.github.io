@@ -6,25 +6,22 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="happyctf:下载附件查壳后发现无壳： 拖进IDA32位：打开主函数 发现一个可疑的函数： 进入：写出脚本：得出flag。">
+  <meta name="description" content="simplerev:使用查壳工具发现并没有壳使用ida64位打开：大概看了一下，试着写出前半部分的c语言代码：它的意思是将小写字母转化为大写字母，后面代码的意思是将flag通过算法后的字符串跟str2比较，要想得出flag，可以爆破或者是逆向解出，但是我都不会……最后我还是上网搜了哈哈哈这个就是脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/01/15/114154-%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:url" content="http://example.com/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="happyctf:下载附件查壳后发现无壳： 拖进IDA32位：打开主函数 发现一个可疑的函数： 进入：写出脚本：得出flag。">
+<meta property="og:description" content="simplerev:使用查壳工具发现并没有壳使用ida64位打开：大概看了一下，试着写出前半部分的c语言代码：它的意思是将小写字母转化为大写字母，后面代码的意思是将flag通过算法后的字符串跟str2比较，要想得出flag，可以爆破或者是逆向解出，但是我都不会……最后我还是上网搜了哈哈哈这个就是脚本">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_380a51679aa73fad23df6b6f4965fa95.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_06b48ad312cd5d31ae06a7c98109853c.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_73d382a1b7d1c5f5ff0d1a5a6787211c.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_48c990c7a49d7e072ed2668179848c5e.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_452f902126c6f1089e11101e896319d7.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_642ac3769c726c0a0d3d62a66011298d.png">
-<meta property="article:published_time" content="2023-01-15T11:54:37.871Z">
-<meta property="article:modified_time" content="2023-01-15T11:54:38.107Z">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_4f3fccee65717f179fe2c9f0b0f9ef49.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_b7f6dd7dfa5140f2500e0aa35d2877e2.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_3fa73b0759ee89a7503b23dfe6dd1438.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_769be108ad76da9fc01b81751dc8f7cc.png">
+<meta property="article:published_time" content="2023-01-22T03:50:46.416Z">
+<meta property="article:modified_time" content="2023-01-22T03:50:46.669Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png">
+<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_4f3fccee65717f179fe2c9f0b0f9ef49.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -81,10 +78,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-114154-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-114154-副本-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2023-01-15T11:54:37.871Z" itemprop="datePublished">2023-01-15</time>
+    <a href="/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" class="article-date">
+  <time class="dt-published" datetime="2023-01-22T03:50:46.416Z" itemprop="datePublished">2023-01-22</time>
 </a>
     
   </div>
@@ -93,15 +90,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>happyctf:<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png"><br>下载附件查壳后发现无壳：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_380a51679aa73fad23df6b6f4965fa95.png"></p>
-<p>拖进IDA32位：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_06b48ad312cd5d31ae06a7c98109853c.png"><br>打开主函数<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_73d382a1b7d1c5f5ff0d1a5a6787211c.png"></p>
-<p>发现一个可疑的函数：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_48c990c7a49d7e072ed2668179848c5e.png"></p>
-<p>进入：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_452f902126c6f1089e11101e896319d7.png"><br>写出脚本：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_642ac3769c726c0a0d3d62a66011298d.png"><br>得出flag。</p>
+        <p>simplerev:<br>使用查壳工具发现并没有壳<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_4f3fccee65717f179fe2c9f0b0f9ef49.png"><br>使用ida64位打开：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b7f6dd7dfa5140f2500e0aa35d2877e2.png"><br>大概看了一下，试着写出前半部分的c语言代码：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3fa73b0759ee89a7503b23dfe6dd1438.png"><br>它的意思是将小写字母转化为大写字母，<br>后面代码的意思是将flag通过算法后的字符串跟str2比较，要想得出flag，可以爆破或者是逆向解出，但是我都不会……最后我还是上网搜了哈哈哈<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_769be108ad76da9fc01b81751dc8f7cc.png"><br>这个就是脚本</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" data-id="clcxbm1p70000xomu2bd69iuq" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" data-id="cld6uh0rt0000tkmu41n9fk37" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -111,7 +105,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/22/123222/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -121,7 +115,7 @@
     </a>
   
   
-    <a href="/2023/01/15/114154/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>

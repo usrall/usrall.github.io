@@ -6,25 +6,26 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="happyctf:下载附件查壳后发现无壳： 拖进IDA32位：打开主函数 发现一个可疑的函数： 进入：写出脚本：得出flag。">
+  <meta name="description" content="蒋璐源的秘密：打开靶机：（大晚上看的多少有点瘆人了）查看源代码发现一个可疑的地址：Archive_room.php，跟进去看看点进去看看….变成小丑了直接用bp拦截黄色的地方加到网址后面，…..后面的我就不咋会了…我去搜的：才知道需要构造东西：于是flag就出来了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/01/15/114154-%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:url" content="http://example.com/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="happyctf:下载附件查壳后发现无壳： 拖进IDA32位：打开主函数 发现一个可疑的函数： 进入：写出脚本：得出flag。">
+<meta property="og:description" content="蒋璐源的秘密：打开靶机：（大晚上看的多少有点瘆人了）查看源代码发现一个可疑的地址：Archive_room.php，跟进去看看点进去看看….变成小丑了直接用bp拦截黄色的地方加到网址后面，…..后面的我就不咋会了…我去搜的：才知道需要构造东西：于是flag就出来了">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_380a51679aa73fad23df6b6f4965fa95.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_06b48ad312cd5d31ae06a7c98109853c.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_73d382a1b7d1c5f5ff0d1a5a6787211c.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_48c990c7a49d7e072ed2668179848c5e.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_452f902126c6f1089e11101e896319d7.png">
-<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_642ac3769c726c0a0d3d62a66011298d.png">
-<meta property="article:published_time" content="2023-01-15T11:54:37.871Z">
-<meta property="article:modified_time" content="2023-01-15T11:54:38.107Z">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_1b3522dd8dfe448a17a3bc4c4ac038b7.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_9cbfa96d4e0f2e912e9f0c2fedb0b586.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_aa7fabf2b440f04b161848039f3085ea.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_eebfad1cf385c2c2b0e3ebc86fd8f509.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_66ec6e4f5ba684a1f4b33dc96defc42a.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_5bfe6586a556aff2f79a91f153480855.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_f99935bec98592384997f8f01d6e4f49.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_871f9a7a1da6d53ac8e1acc9c4584967.png">
+<meta property="article:published_time" content="2023-01-22T13:25:14.024Z">
+<meta property="article:modified_time" content="2023-01-22T13:25:14.277Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png">
+<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_1b3522dd8dfe448a17a3bc4c4ac038b7.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -81,10 +82,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-114154-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-穿山甲" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2023-01-15T11:54:37.871Z" itemprop="datePublished">2023-01-15</time>
+    <a href="/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" class="article-date">
+  <time class="dt-published" datetime="2023-01-22T13:25:14.024Z" itemprop="datePublished">2023-01-22</time>
 </a>
     
   </div>
@@ -93,15 +94,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>happyctf:<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a9cf17150a48c062bf992ca209567f51.png"><br>下载附件查壳后发现无壳：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_380a51679aa73fad23df6b6f4965fa95.png"></p>
-<p>拖进IDA32位：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_06b48ad312cd5d31ae06a7c98109853c.png"><br>打开主函数<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_73d382a1b7d1c5f5ff0d1a5a6787211c.png"></p>
-<p>发现一个可疑的函数：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_48c990c7a49d7e072ed2668179848c5e.png"></p>
-<p>进入：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_452f902126c6f1089e11101e896319d7.png"><br>写出脚本：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_642ac3769c726c0a0d3d62a66011298d.png"><br>得出flag。</p>
+        <p>蒋璐源的秘密：<br>打开靶机：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1b3522dd8dfe448a17a3bc4c4ac038b7.png"><br>（大晚上看的多少有点瘆人了）<br>查看源代码<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9cbfa96d4e0f2e912e9f0c2fedb0b586.png"><br>发现一个可疑的地址：Archive_room.php，跟进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_aa7fabf2b440f04b161848039f3085ea.png"><br>点进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_eebfad1cf385c2c2b0e3ebc86fd8f509.png"><br>….变成小丑了<br>直接用bp拦截<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_66ec6e4f5ba684a1f4b33dc96defc42a.png"><br>黄色的地方加到网址后面，<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5bfe6586a556aff2f79a91f153480855.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_f99935bec98592384997f8f01d6e4f49.png"><br>…..<br>后面的我就不咋会了…我去搜的：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_871f9a7a1da6d53ac8e1acc9c4584967.png"><br>才知道需要构造东西：<br>于是flag就出来了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/15/114154-%E5%89%AF%E6%9C%AC/" data-id="clcxbm1p70000xomu2bd69iuq" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" data-id="cld7ey52h000160mu8427c2zk" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -111,17 +109,8 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/01/22/114154-%E5%89%AF%E6%9C%AC-%E5%89%AF%E6%9C%AC/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/15/114154/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/22/123222/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
