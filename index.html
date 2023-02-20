@@ -71,6 +71,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-qiezi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/02/20/qiezi/" class="article-date">
+  <time class="dt-published" datetime="2023-02-20T12:45:19.757Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_93b4ea9b3b3d43997417dc3a1c7b1595.png"><br>老样子，打开靶机下载附件<br>先nc一下试试<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_8ca04530ed4b0cd61af8f90a8f21ebe2.png"><br>（我事先看过了ida里面的文件）<br>输入11.28125没什么屌用<br>后来仔细一看才发现是v2判断函数的走向<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_7d9b3a056d1abbbf4b4d1ff84fb6bfe5.png"><br>哈哈，有点粗心了<br>看见get函数感觉要使用栈溢出<br>这个简单，只需要把v1覆盖住就行了，然后就可以到v2了<br>于是我写了个脚本<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3ed047c6e5e9070e3359ff567822293c.png"><br>但是发现好像也没什么diao用<br>然后才发现v2的大小忘了加了<br>但是加哪里呢？<br>我试着跟v1的数据加到一起<br>不出意外，报错了<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_7b54b19c4541cf7a51f969c5e30727d7.png">后来左思右想想不出答案，就去网上搜了一下<br>emmm<br>原来是我的地址写错了<br>应该是11.28125的16进制，<br>然后就出来了<br>emmm还是有点懵<br>不应该是函数地址吗，怎么又变成这样子了，还是在研究研究吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/20/qiezi/" data-id="clecu5tf500011omu70cl3cp6" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-lbw" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/02/20/lbw/" class="article-date">
+  <time class="dt-published" datetime="2023-02-20T11:46:34.323Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_749989e38ce1e27d6f7f9e3e2a4967c3.png"><br>打开后是一个网站，上面有一个输入框：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_7202da158d0399a9c8fd91163c4fb354.png"><br>合着就是sql注入呗（虽然我也不会哈哈）<br>搞个1，输进去有回显，然后在输个双引号 也有回显，但是单引号没有回显<br>感觉不会做这题，上网上搜了篇博客：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_ade828a86b2ed3027791d48d73129867.png"><br>…6<br>就是感觉不怎么理解为什么搞个“*，1”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/20/lbw/" data-id="clecu5tey00001omu8ze8fx3r" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-伞兵一号" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/02/07/%E4%BC%9E%E5%85%B5%E4%B8%80%E5%8F%B7/" class="article-date">
@@ -307,69 +365,6 @@
 
 
   
-    <article id="post-114154" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/01/15/114154/" class="article-date">
-  <time class="dt-published" datetime="2023-01-15T10:48:10.297Z" itemprop="datePublished">2023-01-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>逆向题：<br>1.easyre<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_2a74db7726b570a9e566e082bbbe7935.png"><br>直接下载附件，使用die查壳后发现无壳，是64位程序<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a3675dd6d337179b9b7e7c50593e2809.png"><br>拖进IDA64位：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b0fb0707abb906882fbadc11b685ec2e.png"><br>通过F5反编译后，答案显而易见。<br>2.reverse1<br>首先下载好附件，使用查壳软件发现无壳，拖进IDA里面<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9531c4974a7011ce7b0a7ad05b0f34bb.png"></p>
-<p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1b0682fca6a963d8265e3f3ba89adeda.png"></p>
-<p>使用shift + F12查找字符串：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_d2d24ef37747b0f60a2f9511e3ced383.png"><br>找到可疑字符”this is right flag!\n“<br>追踪进去：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_efb9a7e04423c7afb132aa2104dbbabd.png"></p>
-<p>发现后面有一个函数，双击进去：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_391860f57286f4c1fc96420edc1586a2.png"><br>根据函数，发现判断条件是str1和str2相等<br>追踪str2发现其为”hello_world“<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_ef9d39f8c0d6c5bbf69acc2b450acbc6.png"></p>
-<p>然而到这里并没有结束，<br>注意前面的函数：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1e161b380b819f4ce2788b53d9984706.png"><br>由此得知应将”o“改为”0“；<br>故得出flag应为”hell0_w0rld“</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/15/114154/" data-id="clcx98s9j0000icmuar2s8h3v" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-1231" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/01/15/1231/" class="article-date">
-  <time class="dt-published" datetime="2023-01-15T06:16:53.037Z" itemprop="datePublished">2023-01-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>web题：<br>      极客大挑战：<img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b9896455422ef2aa9be472cc902c8680.png"><br>启动靶机：<br>一看就是一个sql注入；<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_188ef89f29031d4509075a810c6caa76.png"><br>随便输入一个密码：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_81ad5071cccd234dccd2417bf182e674.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_6fc4163a299d6d13353fd5877e21773e.png"><br>显示错误，试一下万能密码（网上一搜多的是）：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_ccc72c9dc09e1f7583de817aec6c95fa.png"></p>
-<p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a6c836bfc05855717a7a3cdf8610488a.png"><br>这就得到了flag。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/15/1231/" data-id="clcwzmbtl0000zsmu8nc24jnv" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -406,6 +401,14 @@
       <ul>
         
           <li>
+            <a href="/2023/02/20/qiezi/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/20/lbw/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/07/%E4%BC%9E%E5%85%B5%E4%B8%80%E5%8F%B7/">(no title)</a>
           </li>
         
@@ -415,14 +418,6 @@
         
           <li>
             <a href="/2023/02/03/233/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/01/%E7%A9%BF%E5%B1%B1%E7%94%B2-%E5%89%AF%E6%9C%AC/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/">(no title)</a>
           </li>
         
       </ul>
