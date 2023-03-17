@@ -71,6 +71,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-爆裂之儿" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T13:28:02.423Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_61e76c98aa77e10a9228109e55cba101.png"><br>考点是格式化字符串漏洞<br>首先下载附件：<br>打开ida：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_df6d7bd50a968acb3369234c1b4c247c.png"><br>这个是函数的整体逻辑<br>这段代码讲的意思就是你要猜一个随机数，猜对了就给你flag<br>那肯定猜不对啊<br>先记住变量dword的地址 0x08040c044<br>然后在把文件复制到ubantu里面进行调试<br>首先对文件进行检查<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a0448d67eabdec2342257fd9d6f9677b.png"><br>开启了金丝雀保护和栈不可执行<br>不能使用栈溢出<br>那就使用格式化字符漏洞<br>原理就是这个文件接受数据的时候没有对数据进行检查，没有对一些危险的字符串进行过滤，就比如说%p，这就导致程序可能会调用一些敏感函数，攻击者则根据这些获得关键信息<br>就比如说这个文件<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3fb17375582e49c01b84340ed6fa88f9.png"><br>我输入了一个%p，他就给我打印了一个地址(虽然具体是哪的我不知道)<br>然后我们就根据这个原理来构造payload<br>首先我们得找到输入端的地址<br>我现在就会最简单的查找偏移的办法<br>在文件里面输入一串字符并加上%n$p<br>如果返回的地址是这个字符串的大小，那么这个n就是偏移量<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_c0a641c08b26dc24e53797f7cc1788b4.png"><br>这里的偏移量就是10<br>然后根据这个构造payload<br>首先你得发送AAAA这个字符串来覆盖原来的变量地址(dword)地址我们已经知道了，然后发送到这个地址<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5a3f99d620660ef9e57685a416f0139c.png"><br>首先四个字符占一个地址，所以我们发送的地址也得向后偏移<br>然而一个地址只能接受一个A，所以我们得写四个地址<br>最后我们还得看看dword这个变量储存的字符串，好让我们get shell<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_fcaeb2269514f7c74d675a22552bc994.png"><br>在调试里面输入这个命令（查看该地址往后20个地址的参数？）<br>我也不太清楚<br>然后在发送一个这个地址转换为字符(因为在ida里面有一个atoi函数给nptr变成了数字)<br>脚本如下图所示<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_4681de5ea32607ae5a15fc8e0ed04976.png"><br>之后就可以cat flag了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/" data-id="clfckt5va00027omua5x16ktj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-吉尼实在是太没" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/11/%E5%90%89%E5%B0%BC%E5%AE%9E%E5%9C%A8%E6%98%AF%E5%A4%AA%E6%B2%A1/" class="article-date">
+  <time class="dt-published" datetime="2023-03-11T03:05:15.853Z" itemprop="datePublished">2023-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_cdfabaf1297c89d696b3a0b818c48fb2.png"><br>ida里面的逆序，笑死我了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/11/%E5%90%89%E5%B0%BC%E5%AE%9E%E5%9C%A8%E6%98%AF%E5%A4%AA%E6%B2%A1/" data-id="clfckt5v400007omugw837xiy" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-鸡你太美" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/08/%E9%B8%A1%E4%BD%A0%E5%A4%AA%E7%BE%8E/" class="article-date">
+  <time class="dt-published" datetime="2023-03-08T13:03:05.388Z" itemprop="datePublished">2023-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>卧槽看不懂，标记一下，下次再看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5ef4c1e4130e270190c4f9739222c9b2.png"><br>不懂的：strtol函数，yield函数（相当于一个不退出程序的return），然后ida里面的编码差不多能看懂了<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_fc144a0e32f3c6f09b0a0d4be76f2f60.png"><br>这玩意就是生成斐波那契数列<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_628b178cfc72dc22a94e0dca99c5462c.png"><br>（哎，我还发现了一个快捷键‘tab’可以切换代码是反编译还是不反编译哈哈）</p>
+<p>除了那一个 strtol函数看不懂…..</p>
+<p>总结：还是学的太少了qwq</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/08/%E9%B8%A1%E4%BD%A0%E5%A4%AA%E7%BE%8E/" data-id="clfckt5v800017omu03kn791y" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-孙笑川" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/" class="article-date">
@@ -277,93 +366,6 @@
 
 
   
-    <article id="post-穿山甲-副本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/02/01/%E7%A9%BF%E5%B1%B1%E7%94%B2-%E5%89%AF%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2023-02-01T12:50:24.627Z" itemprop="datePublished">2023-02-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>buuctf 你传你🐎呢：<br>   打开靶机<br>   <img src="https://huatu.98youxi.com/markdown/work/uploads/upload_562a44989812a8ea21a70e346e195b6e.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_008581f995a078c8c14c711217b0e81b.png"><br>好家伙，这雕图<br>看来是一个上传木马的题目：<br>先写一句话木马<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_51e7afaaaf4876cb78b063f535fb1ef9.png"><br>当然我后缀没有改成php，感觉不可能那么简单的哈哈<br>上传上去发现事情并没有那么简单<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3d2477104f76af49b07a0a2bfddb2092.png"><br>（后来其实我发现上传.php后缀的文件好像有显示错误）<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_4d4fbe5be4e30769f22d64b248c51069.png"><br>不过我误打误撞上传成功了哈哈哈<br>后面估计是使用bp改文件的后缀名字：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_729dbc2619a60e08abbfa291b3b6a24c.png"><br>（一开始的bp抓包的图片我没有放（懒得再搞一遍哈哈哈））<br>这个其实是我后来搞不明白了上网去搜了后来搞得<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_600a20cfc9eb57a5b32104ee13f6ddb4.png"><br>这个是我截图别人的（我自己也搞出来了，但是那个时候没有截图，忘了）<br>我虽然搞到这里了，但是我看不太懂，后来我上网上搜的好像是搜到需要用.htaccess文件来代替php文件，但是具体怎么上传的我看了好几遍也没有看懂……<br>导致后面的蚁剑没有链接上，看来还得在多多努力啊……<br>（不过看大佬的wp好像是蚁剑上应该就出结果了）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/01/%E7%A9%BF%E5%B1%B1%E7%94%B2-%E5%89%AF%E6%9C%AC/" data-id="cldlo49xt000000mu8df89yes" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-穿山甲" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" class="article-date">
-  <time class="dt-published" datetime="2023-01-22T13:25:14.024Z" itemprop="datePublished">2023-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>蒋璐源的秘密：<br>打开靶机：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1b3522dd8dfe448a17a3bc4c4ac038b7.png"><br>（大晚上看的多少有点瘆人了）<br>查看源代码<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_9cbfa96d4e0f2e912e9f0c2fedb0b586.png"><br>发现一个可疑的地址：Archive_room.php，跟进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_aa7fabf2b440f04b161848039f3085ea.png"><br>点进去看看<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_eebfad1cf385c2c2b0e3ebc86fd8f509.png"><br>….变成小丑了<br>直接用bp拦截<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_66ec6e4f5ba684a1f4b33dc96defc42a.png"><br>黄色的地方加到网址后面，<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5bfe6586a556aff2f79a91f153480855.png"><br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_f99935bec98592384997f8f01d6e4f49.png"><br>…..<br>后面的我就不咋会了…我去搜的：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_871f9a7a1da6d53ac8e1acc9c4584967.png"><br>才知道需要构造东西：<br>于是flag就出来了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/22/%E7%A9%BF%E5%B1%B1%E7%94%B2/" data-id="cld7ey52h000160mu8427c2zk" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-123222" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/01/22/123222/" class="article-date">
-  <time class="dt-published" datetime="2023-01-22T13:14:26.401Z" itemprop="datePublished">2023-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_1347f4a36d0015c55c0471ece68ee01f.png"><br>打开靶机，发现是这样子的：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5e8a69cf3576d59673bec79ebc3e0b60.png"><br>猜测可能是sql注入或者是命令执行漏洞：<br>先ping一下主机地址：127.0.0.1：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_93d73a040df6d70ee0fda9739cd26027.png"><br>有回显<br>大概是命令执行漏洞<br>试一下127.0.0 &amp;&amp; ls：<br>无回显<br>再试127.0.0.1 &amp; ls：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_960a3fd662b0b1423aed367e0867b691.png"><br>有回显<br>访问index.php好像又回到了初始页面…..<br>试一下linux的命令（当然是上网上搜索的哈哈）<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_880827603513d7902cc467e7c0bd692f.png"><br>直接cat flag</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/22/123222/" data-id="cld7ey52a000060mu8z3y8v4d" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -400,23 +402,23 @@
       <ul>
         
           <li>
+            <a href="/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/11/%E5%90%89%E5%B0%BC%E5%AE%9E%E5%9C%A8%E6%98%AF%E5%A4%AA%E6%B2%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/08/%E9%B8%A1%E4%BD%A0%E5%A4%AA%E7%BE%8E/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/">(no title)</a>
           </li>
         
           <li>
             <a href="/2023/02/21/%E7%8E%8B%E5%A2%83%E6%B3%BD%E7%82%92%E9%A5%AD/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/20/qiezi/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/20/lbw/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/07/%E4%BC%9E%E5%85%B5%E4%B8%80%E5%8F%B7/">(no title)</a>
           </li>
         
       </ul>

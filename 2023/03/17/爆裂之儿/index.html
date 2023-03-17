@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="考点是格式化字符串漏洞首先下载附件：打开ida：这个是函数的整体逻辑这段代码讲的意思就是你要猜一个随机数，猜对了就给你flag那肯定猜不对啊先记住变量dword的地址 0x08040c044然后在把文件复制到ubantu里面进行调试首先对文件进行检查开启了金丝雀保护和栈不可执行不能使用栈溢出那就使用格式化字符漏洞原理就是这个文件接受数据的时候没有对数据进行检查，没有对一些危险的字符串进行过滤，就比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="考点是格式化字符串漏洞首先下载附件：打开ida：这个是函数的整体逻辑这段代码讲的意思就是你要猜一个随机数，猜对了就给你flag那肯定猜不对啊先记住变量dword的地址 0x08040c044然后在把文件复制到ubantu里面进行调试首先对文件进行检查开启了金丝雀保护和栈不可执行不能使用栈溢出那就使用格式化字符漏洞原理就是这个文件接受数据的时候没有对数据进行检查，没有对一些危险的字符串进行过滤，就比">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_61e76c98aa77e10a9228109e55cba101.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_df6d7bd50a968acb3369234c1b4c247c.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_a0448d67eabdec2342257fd9d6f9677b.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_3fb17375582e49c01b84340ed6fa88f9.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_c0a641c08b26dc24e53797f7cc1788b4.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_5a3f99d620660ef9e57685a416f0139c.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_fcaeb2269514f7c74d675a22552bc994.png">
+<meta property="og:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_4681de5ea32607ae5a15fc8e0ed04976.png">
+<meta property="article:published_time" content="2023-03-17T13:28:02.423Z">
+<meta property="article:modified_time" content="2023-03-17T13:28:02.704Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://huatu.98youxi.com/markdown/work/uploads/upload_61e76c98aa77e10a9228109e55cba101.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-爆裂之儿" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T13:28:02.423Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_61e76c98aa77e10a9228109e55cba101.png"><br>考点是格式化字符串漏洞<br>首先下载附件：<br>打开ida：<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_df6d7bd50a968acb3369234c1b4c247c.png"><br>这个是函数的整体逻辑<br>这段代码讲的意思就是你要猜一个随机数，猜对了就给你flag<br>那肯定猜不对啊<br>先记住变量dword的地址 0x08040c044<br>然后在把文件复制到ubantu里面进行调试<br>首先对文件进行检查<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_a0448d67eabdec2342257fd9d6f9677b.png"><br>开启了金丝雀保护和栈不可执行<br>不能使用栈溢出<br>那就使用格式化字符漏洞<br>原理就是这个文件接受数据的时候没有对数据进行检查，没有对一些危险的字符串进行过滤，就比如说%p，这就导致程序可能会调用一些敏感函数，攻击者则根据这些获得关键信息<br>就比如说这个文件<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_3fb17375582e49c01b84340ed6fa88f9.png"><br>我输入了一个%p，他就给我打印了一个地址(虽然具体是哪的我不知道)<br>然后我们就根据这个原理来构造payload<br>首先我们得找到输入端的地址<br>我现在就会最简单的查找偏移的办法<br>在文件里面输入一串字符并加上%n$p<br>如果返回的地址是这个字符串的大小，那么这个n就是偏移量<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_c0a641c08b26dc24e53797f7cc1788b4.png"><br>这里的偏移量就是10<br>然后根据这个构造payload<br>首先你得发送AAAA这个字符串来覆盖原来的变量地址(dword)地址我们已经知道了，然后发送到这个地址<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_5a3f99d620660ef9e57685a416f0139c.png"><br>首先四个字符占一个地址，所以我们发送的地址也得向后偏移<br>然而一个地址只能接受一个A，所以我们得写四个地址<br>最后我们还得看看dword这个变量储存的字符串，好让我们get shell<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_fcaeb2269514f7c74d675a22552bc994.png"><br>在调试里面输入这个命令（查看该地址往后20个地址的参数？）<br>我也不太清楚<br>然后在发送一个这个地址转换为字符(因为在ida里面有一个atoi函数给nptr变成了数字)<br>脚本如下图所示<br><img src="https://huatu.98youxi.com/markdown/work/uploads/upload_4681de5ea32607ae5a15fc8e0ed04976.png"><br>之后就可以cat flag了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/" data-id="clfckt5va00027omua5x16ktj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/11/%E5%90%89%E5%B0%BC%E5%AE%9E%E5%9C%A8%E6%98%AF%E5%A4%AA%E6%B2%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/17/%E7%88%86%E8%A3%82%E4%B9%8B%E5%84%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/11/%E5%90%89%E5%B0%BC%E5%AE%9E%E5%9C%A8%E6%98%AF%E5%A4%AA%E6%B2%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/08/%E9%B8%A1%E4%BD%A0%E5%A4%AA%E7%BE%8E/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/02/%E5%AD%99%E7%AC%91%E5%B7%9D/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/%E7%8E%8B%E5%A2%83%E6%B3%BD%E7%82%92%E9%A5%AD/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
